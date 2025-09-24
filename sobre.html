@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre</title>
+    <!-- Arquivo CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Logo Favicon -->
+    <link rel="icon" href="imagens/logo.png" type="image/x-icon">
+    <!-- Biblioteca Font Awesome -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    
+<!-- Cabeçalho -->
+<header class="header" role="banner">
+    <nav class="navbar" aria-label="Navegação principal">
+        <div class="logo"> <img src="imagens/logo.png" alt="logo" class="logo"></div>
+        <div class="nome">Relate</div>
+        <!-- Div para espaçamento logo e links -->
+        <div style="width: 100%;">
+            <ul class="nav-links">
+                <li> <a href="home.html">Início</a></li>
+                <li> <a href="estatisticas.html">Estatísticas</a></li>
+                <li> <a href="sobre.html">Sobre</a></li>
+                <li> <a href="contato.html">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<!-- Conteúdo -->
+<main class="main-content" role="main" id="main">
+    
+<!-- Seção Sobre e Mapa -->
+<section class="container-sobre">
+    <h1 class="title-op1">Relatos na Sua Região</h1>
+        <div class="about">
+            <div class="about-text">
+                <h2 class="subtitle-op1">Como funciona nosso sistema</h2>
+                <p>Nosso site permite que cidadãos como você reportem problemas em sua comunidade de forma anônima. Utilizamos um sistema de geolocalização para identificar a área da denúncia e encaminhá-la para os órgãos competentes.</p>
+                <p>Você pode reportar diversos tipos de problemas, incluindo buracos em vias públicas, iluminação deficiente, acúmulo de lixo, entre outros. Sua participação é fundamental para melhorarmos nossa cidade.</p>
+                <p>Todos os relatos e sugestões são analisadas e acompanhadas até sua resolução. Você pode verificar o status a qualquer momento através do código de acompanhamento que fornecemos.</p>
+            </div>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d35066.078111740586!2d-44.11132809501961!3d-22.50915685145699!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9ea2ac4b4e5c1d%3A0xd475bc9356fcad22!2sVolta%20Redonda%2C%20RJ!5e0!3m2!1spt-BR!2sbr!4v1757121917652!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+        </div>
+</section>
+
+</main>
+
+<!-- Seção Como Funciona -->
+<section class="how-it-works">
+    <h2 class="title-op1">Como fazer seu relato</h2>
+        <div class="steps">
+            <div class="step">
+                <i class="fas fa-clipboard-list"></i>
+                <h3 class="subtitle-op1">Preencha o Formulário</h3>
+                <p>Forneça detalhes sobre o problema que você identificou</p>
+            </div>
+                <div class="step">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3 class="subtitle-op1">Informe a Localização</h3>
+                    <p>Use nosso mapa para indicar exatamente onde está o problema</p>
+                </div>
+                <div class="step">
+                    <i class="fas fa-check-circle"></i>
+                    <h3 class="subtitle-op1">Envie sua Sugestão</h3>
+                    <p>Seu relato será encaminhado para o órgão responsável</p>
+                </div>
+                <div class="step">
+                    <i class="fas fa-chart-line"></i>
+                    <h3 class="subtitle-op1">Mantenha-se Informado</h3>
+                    <p>Monitore o andamento da resolução através da plataforma</p>
+                </div>
+        </div>
+</section>
+
+<!-- Rodapé -->
+<footer class="footer" role="contentinfo">
+    <div class="footer-content">
+        <div class="footer-top">Copyright © – Relate | Todos os direitos reservados</div>
+        <div class="footer-bottom">Temos por objetivo ser um meio seguro para promover transparência, participação ativa e melhorias no espaço urbano através da colaboração dos cidadãos de forma anônima.</div>
+    </div>
+</footer>
+
+<!-- Arquivo JS -->
+<script src="script.js"></script>
+</body>
+</html>

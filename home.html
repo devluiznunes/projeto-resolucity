@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <!-- Arquivo CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Logo Favicon -->
+    <link rel="icon" href="imagens/logo.png" type="image/x-icon">
+</head>
+<body>
+    
+<!-- Cabeçalho -->
+<header class="header" role="banner">
+    <nav class="navbar" aria-label="Navegação principal">
+        <div class="logo"> <img src="imagens/logo.png" alt="logo" class="logo"></div>
+        <div class="nome">Relate</div>
+        <!-- Div para espaçamento logo e links -->
+        <div style="width: 100%;">
+            <ul class="nav-links">
+                <li> <a href="home.html">Início</a></li>
+                <li> <a href="estatisticas.html">Estatísticas</a></li>
+                <li> <a href="sobre.html">Sobre</a></li>
+                <li> <a href="contato.html">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<!-- Banner Hero -->
+<section class="hero">
+    <div>
+        <h1>Colabore com a sua cidade através de relatos anônimos</h1>
+        <p>Faça a diferença em seu município com apenas alguns cliques</p>
+    </div>
+</section>
+
+<!-- Conteúdo -->
+<main class="main-content" role="main" id="main">
+
+<!-- Containers com Botão -->
+<section class="action-containers" aria-label="Opções de ação">
+    <div class="container">
+        <div class="container-content">
+            <h2>Relatar</h2>
+            <p>Deixe seu relato sobre problemas ou sugestões para melhorar sua cidade.</p>
+            <button class="btn-relato" onclick="window.location.href='relatar.html'">Fazer Relato</button>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="container-content">
+            <h2>Categorias</h2>
+            <p>Veja a descrição completa sobre cada categoria e descubra a que melhor se adequa ao seu relato.</p>
+            <button class="btn-relato" onclick="window.location.href='categorias.html'">Ver Categorias</button>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<!-- Rodapé -->
+<footer class="footer" role="contentinfo">
+    <div class="footer-content">
+        <div class="footer-top">Copyright © – Relate | Todos os direitos reservados</div>
+        <div class="footer-bottom">Temos por objetivo ser um meio seguro para promover transparência, participação ativa e melhorias no espaço urbano através da colaboração dos cidadãos de forma anônima.</div>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
