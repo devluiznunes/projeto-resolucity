@@ -65,7 +65,6 @@ new Chart(pieCtx, {
                         size: isMobileScreen() ? 9 : 10
                     },
                     padding: 15,
-                    // Correção da função generateLabels
                     generateLabels: function(chart) {
                         const data = chart.data;
                         if (data.labels.length && data.datasets.length) {
@@ -106,16 +105,20 @@ new Chart(pieCtx, {
 
 // Configuração do gráfico de barras
 const barCtx = document.getElementById('barChart').getContext('2d');
+
+// Preparar labels para display no gráfico de barras
+const barLabels = categories.map(label => {
+    // Aplicar a mesma lógica de truncamento do gráfico de pizza
+    if (isMobileScreen() && label.length > 15) {
+        return label.substring(0, 15) + '...';
+    }
+    return label;
+});
+
 new Chart(barCtx, {
     type: 'bar',
     data: {
-        labels: categories.map(label => {
-            // Abreviar labels longos em telas pequenas
-            if (isMobileScreen() && label.length > 12) {
-                return label.substring(0, 10) + '...';
-            }
-            return label;
-        }),
+        labels: barLabels, // Usar labels formatadas
         datasets: [{
             label: 'Problemas Resolvidos',
             data: resolvedData,
@@ -146,9 +149,6 @@ new Chart(barCtx, {
                     minRotation: isMobileScreen() ? 0 : 45,
                     font: {
                         size: isMobileScreen() ? 9 : 10
-                    },
-                    callback: function(value, index) {
-                        return this.getLabelForValue(value);
                     }
                 },
                 grid: {
@@ -159,6 +159,17 @@ new Chart(barCtx, {
         plugins: {
             legend: {
                 display: false
+            },
+            tooltip: {
+                callbacks: {
+                    title: function(context) {
+                        // Mostrar o nome completo da categoria no tooltip
+                        return categories[context[0].dataIndex];
+                    },
+                    label: function(context) {
+                        return `Resolvidos: ${context.parsed.y}`;
+                    }
+                }
             }
         },
         layout: {
@@ -175,6 +186,8 @@ new Chart(barCtx, {
 // Redesenhar gráficos quando a janela for redimensionada
 window.addEventListener('resize', function() {
     // Os gráficos do Chart.js são automaticamente responsivos
+    // Mas precisamos recriar os gráficos para atualizar as labels
+    location.reload(); // Recarregar a página para simplificar
 });
 
 // Menu mobile toggle
