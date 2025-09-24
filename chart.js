@@ -35,6 +35,11 @@ for (let i = 0; i < categories.length; i++) {
     backgroundColors.push(`hsl(${hue}, 70%, 65%)`);
 }
 
+// Função para detectar tamanho de tela
+function isMobileScreen() {
+    return window.innerWidth <= 768;
+}
+
 // Configuração do gráfico de pizza
 const pieCtx = document.getElementById('pieChart').getContext('2d');
 new Chart(pieCtx, {
@@ -53,11 +58,35 @@ new Chart(pieCtx, {
         maintainAspectRatio: false,
         plugins: {
             legend: {
-                position: 'right',
+                position: isMobileScreen() ? 'bottom' : 'right',
                 labels: {
-                    boxWidth: 15,
+                    boxWidth: 12,
                     font: {
-                        size: 10
+                        size: isMobileScreen() ? 9 : 10
+                    },
+                    padding: 15,
+                    // Correção da função generateLabels
+                    generateLabels: function(chart) {
+                        const data = chart.data;
+                        if (data.labels.length && data.datasets.length) {
+                            return data.labels.map((label, i) => {
+                                // Truncar labels longos apenas em mobile
+                                let displayLabel = label;
+                                if (isMobileScreen() && label.length > 15) {
+                                    displayLabel = label.substring(0, 15) + '...';
+                                }
+                                
+                                return {
+                                    text: displayLabel,
+                                    fillStyle: data.datasets[0].backgroundColor[i],
+                                    strokeStyle: data.datasets[0].borderColor,
+                                    lineWidth: data.datasets[0].borderWidth,
+                                    hidden: isNaN(data.datasets[0].data[i]) || chart.getDatasetMeta(0).data[i].hidden,
+                                    index: i
+                                };
+                            });
+                        }
+                        return [];
                     }
                 }
             },
@@ -80,7 +109,13 @@ const barCtx = document.getElementById('barChart').getContext('2d');
 new Chart(barCtx, {
     type: 'bar',
     data: {
-        labels: categories,
+        labels: categories.map(label => {
+            // Abreviar labels longos em telas pequenas
+            if (isMobileScreen() && label.length > 12) {
+                return label.substring(0, 10) + '...';
+            }
+            return label;
+        }),
         datasets: [{
             label: 'Problemas Resolvidos',
             data: resolvedData,
@@ -98,15 +133,26 @@ new Chart(barCtx, {
                 title: {
                     display: true,
                     text: 'Quantidade Resolvida'
+                },
+                ticks: {
+                    font: {
+                        size: isMobileScreen() ? 10 : 12
+                    }
                 }
             },
             x: {
                 ticks: {
-                    maxRotation: 90,
-                    minRotation: 45,
+                    maxRotation: isMobileScreen() ? 45 : 90,
+                    minRotation: isMobileScreen() ? 0 : 45,
                     font: {
-                        size: 10
+                        size: isMobileScreen() ? 9 : 10
+                    },
+                    callback: function(value, index) {
+                        return this.getLabelForValue(value);
                     }
+                },
+                grid: {
+                    display: false
                 }
             }
         },
@@ -114,8 +160,21 @@ new Chart(barCtx, {
             legend: {
                 display: false
             }
+        },
+        layout: {
+            padding: {
+                left: isMobileScreen() ? 5 : 10,
+                right: isMobileScreen() ? 5 : 10,
+                top: isMobileScreen() ? 5 : 10,
+                bottom: isMobileScreen() ? 20 : 10
+            }
         }
     }
+});
+
+// Redesenhar gráficos quando a janela for redimensionada
+window.addEventListener('resize', function() {
+    // Os gráficos do Chart.js são automaticamente responsivos
 });
 
 // Menu mobile toggle
