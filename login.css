@@ -1,0 +1,468 @@
+/* Reset e configurações gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Cabeçalho */
+.header {
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    height: 100px;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    padding: 1rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 100px;
+}
+
+.logo {
+    height: 70px;
+}
+
+.nome {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: rgb(0, 0, 90);
+    height: 100px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    float: right;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    font-family: Arial, Helvetica, sans-serif;
+    transition: opacity 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: darkblue;
+    cursor: pointer;
+}
+
+/* Botão menu hamburguer (inicialmente escondido) */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: rgb(0, 0, 90);
+}
+
+/* Rodapé */
+.footer {
+    background-color: white;
+    border-top: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 2rem 0;
+    text-align: center;
+    width: 100%;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0 1rem;
+}
+
+.footer-top {
+    font-size: 1rem;
+}
+
+.footer-bottom {
+    font-size: 0.9rem;
+    opacity: 75%;
+}
+
+/* Conteúdo */
+.main-content {
+    padding: 1rem 1.5rem;
+    flex: 1;
+    margin-bottom: 1rem;
+}
+
+/* Container principal */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.title-op1 {
+    color: rgb(0, 0, 90);
+    font-size: 2.3rem;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.subtitle-op1 {
+    font-size: 1.6rem;
+    color: rgb(0, 0, 90);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Container de autenticação */
+.auth-container {
+    width: 100%;
+}
+
+.form-box {
+    width: 100%;
+}
+
+.form-box.hidden {
+    display: none;
+}
+
+/* Formulário */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+.form-group input[readonly] {
+    background-color: #f0f0f0;
+    cursor: not-allowed;
+}
+
+/* Botões */
+.btn-primary {
+    width: 100%;
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: background 0.3s;
+    margin-top: 10px;
+}
+
+.btn-primary:hover {
+    background: #2980b9;
+}
+
+.btn-primary:active {
+    transform: scale(0.98);
+}
+
+/* Switch entre forms */
+.switch-form {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.95rem;
+}
+
+.switch-form a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.switch-form a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos para campos com erro */
+.error-field {
+    border: 2px solid #e74c3c !important;
+    background-color: #fdf2f2;
+}
+
+.error {
+    display: none;
+    color: #e74c3c;
+    font-size: 0.85rem;
+    margin-top: 5px;
+}
+
+.error.show {
+    display: block;
+}
+
+/* Mensagem de sucesso */
+.success-message {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.success-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    max-width: 400px;
+    width: 90%;
+}
+
+.success-content h3 {
+    color: rgb(0, 0, 90);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.success-content p {
+    margin-bottom: 1rem;
+    color: #555;
+}
+
+.success-content button {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+.success-content button:hover {
+    background: #2980b9;
+}
+
+/* Loading state */
+.btn-primary.loading {
+    opacity: 0.7;
+    cursor: not-allowed;
+    position: relative;
+}
+
+.btn-primary.loading::after {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 50%;
+    left: 50%;
+    margin-left: -8px;
+    margin-top: -8px;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spinner 0.6s linear infinite;
+}
+
+@keyframes spinner {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsividade da tela */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .navbar {
+        padding: 1rem 1.5rem;
+    }
+
+    .nome {
+        font-size: 3.5rem;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+        position: absolute;
+        right: 1rem;
+        top: 1.5rem;
+        order: 3;
+    }
+    
+    .desktop-nav {
+        display: none;
+    }
+    
+    .navbar {
+        padding: 1rem;
+        min-height: 70px;
+        flex-direction: row;
+        align-items: center;
+        height: auto;
+        position: relative;
+        flex-wrap: wrap;
+    }
+    
+    .nome {
+        font-size: 1.8rem;
+        height: auto;
+        order: 2;
+        margin-top: 0;
+    }
+    
+    .logo {
+        height: 40px;
+        order: 1;
+    }
+    
+    /* Container dos links ocupa toda a largura */
+    .navbar > div[style*="width: 100%"] {
+        order: 4;
+        width: 100% !important;
+        margin-top: 1rem;
+    }
+    
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        gap: 0;
+        float: none;
+        display: none;
+    }
+    
+    .nav-links.active {
+        display: flex;
+    }
+    
+    .nav-links li {
+        width: 100%;
+        border-bottom: 1px solid #f0f0f0;
+        text-align: center;
+    }
+    
+    .nav-links li:last-child {
+        border-bottom: none;
+    }
+    
+    .nav-links a {
+        display: block;
+        padding: 1rem 0;
+        width: 100%;
+        font-size: 1.1rem;
+    }
+    
+    .header {
+        height: auto;
+    }
+    
+    .container {
+        margin: 0.5rem;
+        padding: 1.5rem;
+    }
+    
+    .main-content {
+        padding: 0.5rem;
+    }
+
+    .title-op1 {
+        font-size: 1.8rem;
+    }
+
+    .subtitle-op1 {
+        font-size: 1.3rem;
+    }
+}
+
+/* Mobile pequeno */
+@media (max-width: 480px) {
+    .nome {
+        font-size: 1.8rem;
+    }
+    
+    .logo {
+        height: 35px;
+    }
+    
+    .container {
+        margin: 0.25rem;
+        padding: 1rem;
+    }
+    
+    .success-content {
+        width: 95%;
+        margin: 0.5rem;
+        padding: 1.5rem;
+    }
+    
+    .menu-toggle {
+        top: 1.2rem;
+        right: 0.8rem;
+        font-size: 1.5rem;
+    }
+    
+    .nome {
+        margin-left: 0.5rem;
+        font-size: 1.6rem;
+    }
+
+    .title-op1 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+
+    .form-group input {
+        padding: 10px;
+        font-size: 0.95rem;
+    }
+
+    .btn-primary {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+}

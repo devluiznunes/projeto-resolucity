@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Resolucity</title>
+    <!-- Arquivo CSS -->
+    <link rel="stylesheet" href="login.css">
+    <!-- Logo Favicon -->
+    <link rel="icon" href="imagens/logo.png" type="image/x-icon">
+</head>
+<body>
+    
+<!-- Cabeçalho -->
+<header class="header" role="banner">
+    <nav class="navbar" aria-label="Navegação principal">
+        <div class="logo"> <img src="imagens/logo.png" alt="logo" class="logo"></div>
+        <div class="nome">Resolucity</div>
+        <!-- Botão menu hamburguer -->
+        <button class="menu-toggle" aria-expanded="false" aria-controls="nav-links">
+            ☰
+        </button>
+        
+        <!-- Div para espaçamento logo e links -->
+        <div style="width: 100%;">
+            <ul class="nav-links" id="nav-links">
+                <li> <a href="index.html">Início</a></li>
+                <li> <a href="estatisticas.html">Estatísticas</a></li>
+                <li> <a href="sobre.html">Sobre</a></li>
+                <li> <a href="contato.html">Contato</a></li>
+                <li> <a href="login.html">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<!-- Conteúdo -->
+<main class="main-content" role="main" id="main">
+    
+    <div class="container">
+        <h1 class="title-op1">Acesso ao Sistema</h1>
+
+        <!-- Container de Login/Cadastro -->
+        <div class="auth-container">
+            
+            <!-- Formulário de Login -->
+            <div class="form-box" id="login-form">
+                <h2 class="subtitle-op1">Login</h2>
+                
+                <form id="loginForm" novalidate>
+                    <div class="form-group">
+                        <label for="login-email">E-mail:</label>
+                        <input type="email" id="login-email" name="email" required>
+                        <span class="error" id="login-email-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="login-password">Senha:</label>
+                        <input type="password" id="login-password" name="password" required>
+                        <span class="error" id="login-password-error"></span>
+                    </div>
+
+                    <button type="submit" class="btn-primary">Entrar</button>
+                </form>
+
+                <p class="switch-form">
+                    Não tem conta? <a href="#" id="show-register">Cadastre-se aqui</a>
+                </p>
+            </div>
+
+            <!-- Formulário de Cadastro -->
+            <div class="form-box hidden" id="register-form">
+                <h2 class="subtitle-op1">Cadastro</h2>
+                
+                <form id="registerForm" novalidate>
+                    <div class="form-group">
+                        <label for="register-name">Nome Completo:</label>
+                        <input type="text" id="register-name" name="name" required>
+                        <span class="error" id="register-name-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="register-email">E-mail:</label>
+                        <input type="email" id="register-email" name="email" required>
+                        <span class="error" id="register-email-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="register-password">Senha:</label>
+                        <input type="password" id="register-password" name="password" required>
+                        <span class="error" id="register-password-error"></span>
+                    </div>
+
+                    <button type="submit" class="btn-primary">Cadastrar</button>
+                </form>
+
+                <p class="switch-form">
+                    Já tem conta? <a href="#" id="show-login">Faça login aqui</a>
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+</main>
+
+<!-- Rodapé -->
+<footer class="footer" role="contentinfo">
+    <div class="footer-content">
+        <div class="footer-top">Copyright © – Resolucity | Todos os direitos reservados</div>
+        <div class="footer-bottom">Temos por objetivo ser um meio seguro para promover transparência, participação ativa e melhorias no espaço urbano através da colaboração dos cidadãos de forma anônima.</div>
+    </div>
+</footer>
+
+<!-- Modal de Sucesso -->
+<div class="success-message" id="success-modal" style="display: none;">
+    <div class="success-content">
+        <h3 id="success-title">Sucesso!</h3>
+        <p id="success-message"></p>
+        <button id="close-modal">OK</button>
+    </div>
+</div>
+
+<!-- Arquivo JS -->
+<script src="login.js"></script>
+</body>
+</html>
